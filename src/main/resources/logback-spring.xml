@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <property name="appName" value="${project.name}"/>
+    <contextName>${appName}</contextName>
+
+    <springProperty scope="context" name="log.dirs" source="log.dirs"/>
+    <springProperty scope="context" name="log.level" source="log.level"/>
+
+    <property resource="application.properties"/>
+    <property name="defaultPattern"
+              value="%-20(%d{yyyy-MM-dd HH:mm:ss.SSS}) %X{requestId} %-3level %logger{80}.%method:%L - %msg%n"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${defaultPattern}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="${log.level}">
+        <appender-ref ref="${log.appendName}"/>
+    </root>
+
+</configuration>
