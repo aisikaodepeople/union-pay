@@ -19,7 +19,6 @@ public class RedisLockUtil {
 
     /**
      * 释放锁
-     * <p>多线程环境下会失效报错<p/>
      *
      * @param lockKey
      */
@@ -29,7 +28,7 @@ public class RedisLockUtil {
     }
 
     /**
-     * 尝试加锁
+     * 加锁
      *
      * @param lockKey
      * @param waitTime  等待时间 毫秒
